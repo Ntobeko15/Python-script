@@ -1,0 +1,20 @@
+import mysq.connector
+
+db = mysql.connector.connect(
+    host="localhost",
+    user="root",
+    password="root",
+    database="testdatabase"
+    )
+
+mycursor = db.cursor()
+
+mycursor.execute("CREATE TABLE Student (name VARCHAR(50), age smallint UNSIGNED, course VARCHAR(100), gender VARCHAR(1), studentID int PRIMARY KEY)") 
+
+mycursor.execute("INSERT INTO Student (name, age, gender, ID, course")", VALUES(%s,%s,%s,%s,%s)")
+db.commit()
+
+mycursor.execute("SELECT * FROM Student)
+
+for x in mycursor:
+    print(x)
